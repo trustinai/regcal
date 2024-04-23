@@ -181,16 +181,23 @@ Our experiments show that common detection models overestimate the spatial uncer
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel1.png" alt="Multivariate calibration (bottom) vs. standard confidence calibration (top)."/>
+        <img src="static/images/carousel1.png" alt="Example of spatial regression uncertainty"/>
         <h2 class="subtitle has-text-centered">
-          Extended box-sensitive or multivariate calibration proposed in this paper (bottom) vs. standard confidence calibration (top). An object detector predicts a class with a certain confidence and a box proposal containing information about location and scale. Standard calibration methods only take the confidence into account. Our approach also includes the regression branch of an object detector in order to improve the calibration results.
+          Qualitative example of spatial regression uncertainty for object detection tasks. (a) A probabilistic RetinaNet[22] outputs (independent) normal distribu- tions for each dimension. (b) On the one hand, we can recalibrate these distributions using GP-Beta, which yields multiple (independent) distributions of arbitrary shape. (c) On the other hand, we can also use our multivariate (mv.) GP-Normal method which recalibrates the uncertainty of Gaussian distributions and is also able to capture correlations between different dimensions.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel2.png" alt="Dependent Logistic Calibration"/>
+        <img src="static/images/carousel2.png" alt="Toy example of regression uncertainty"/>
         <h2 class="subtitle has-text-centered">
-          Toy example of position dependent calibration. 
+          Regression example using a cosine function with noise to generate ground- truth samples (green). The noise increases towards the function’s maximum. (a) shows an unbiased estimator with equally sampled variance (blue). (b) Isotonic Regression accounts for marginal uncertainty across all samples, while (c) Vari- ance Scaling only has a dependency on the predicted variance. In contrast, (d) GP-Beta and (e) GP-Normal capture information from the whole predicted dis- tribution and thus are able to properly recalibrate the uncertainty.
+        </h2>
+      </div>
+        <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/carousel3.png" alt="Reliability diagram"/>
+        <h2 class="subtitle has-text-centered">
+          Reliability diagram which shows the fraction of ground-truth samples that are covered by the predicted quantile for a certain $\tau$. The Faster R-CNN underestimates the prediction uncertainty. The best calibration performance w.r.t. quantile calibration is reached by Isotonic Regression and GP-Cauchy.
         </h2>
       </div>
   </div>
